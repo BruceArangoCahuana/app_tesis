@@ -23,6 +23,7 @@ module.exports = function (){
     router.post("/laboratorio",laboratorioController.createLaboratorio)
     router.get("/laboratorio/:idlaboratorio",laboratorioController.byIdLaboratorio)
     router.put("/laboratorio/:idlaboratorio",laboratorioController.editLaboratorio)
+    router.delete("/laboratorio/:idlaboratorio",laboratorioController.deleteLaboratorio)
 
     /** laboratorio */
     router.get("/producto",productoController.findAllProducto)

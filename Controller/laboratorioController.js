@@ -66,3 +66,20 @@ exports.editLaboratorio = async(req,res,next) =>{
     }
 
 }
+
+exports.deleteLaboratorio = async(req,res,next) =>{
+    const id = req.params.idlaboratorio
+    try {
+        await Laboratorio.destroy({
+            where:{
+                id_laboratorio:id
+            }
+        })
+        res.json({message:`Se actulizo el laboratorio`})
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+        res.status(500).err(error)
+        res.json({message: "error al crear data"})
+    }
+}
