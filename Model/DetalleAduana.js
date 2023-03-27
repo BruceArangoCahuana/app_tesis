@@ -13,7 +13,7 @@ const Detalleaduana = conexion.define("detalleaduana",{
     }
 })
 
-Producto.hasOne(Detalleaduana);
-Laboratorio.hasOne(Detalleaduana);
+Detalleaduana.belongsTo(Producto);
+Detalleaduana.belongsTo(Laboratorio);
 Detalleaduana.belongsTo(Usuario);
 module.exports = Detalleaduana

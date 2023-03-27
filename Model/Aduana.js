@@ -13,6 +13,6 @@ const Aduana = conexion.define("aduana",{
         type:Sequelize.DATE
     }
 })
-Detalleaduana.hasOne(Aduana);
+Aduana.belongsTo(Detalleaduana);
 Aduana.belongsTo(Usuario);
 module.exports = Aduana

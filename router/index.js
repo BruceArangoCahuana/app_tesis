@@ -14,9 +14,11 @@ module.exports = function (){
 
     /** Aduana */
     router.get("/aduana",aduanaController.findAllAduana)
+    router.post("/aduana",aduanaController.createAduana)
 
     /** Detallea aduana */
-    router.get("/detallea-aduana",detalleController.findAllDetalleAduana)
+    router.get("/detalle-aduana",detalleController.findAllDetalleAduana)
+    router.post("/detalle-aduana",detalleController.createDetalleAduana)
 
     /** laboratorio */
     router.get("/laboratorio",laboratorioController.findAllLaboratorio)
@@ -27,10 +29,15 @@ module.exports = function (){
 
     /** laboratorio */
     router.get("/producto",productoController.findAllProducto)
+    router.post("/producto",productoController.createProducto)
+    router.get("/producto/:idproducto",productoController.byIdProducto)
+    router.put("/producto/:idproducto",productoController.editProducto)
+
 
      /** usuarios */
      router.post("/crear-usuario",usuarioController.createUsuario)
      router.post("/iniciar-session",usuarioController.sessionUsuario)
+     
 
     return  router
 }

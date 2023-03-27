@@ -4,7 +4,8 @@
   "description": "Servicio web de tesis",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "start": "nodemon ./index.js",
+    "db:importarlaboratorio": "node ./seed/seeder.js -i"
   },
   "author": "Brandon Arango Cahuana",
   "license": "ISC",

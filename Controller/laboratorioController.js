@@ -5,25 +5,22 @@ exports.findAllLaboratorio = async(req,res,next) =>{
         const laboratorio = await Laboratorio.findAll({
             attributes: ['id_laboratorio', 'nombre']
         })
-        if(laboratorio.length > 0){
-            res.json(laboratorio)
-        }
-        res.json({
-            "message":"No hay data registrada de labotario"
-        })
         
+        res.json(laboratorio)
+           
     } catch (error) {
-        res.json({
-            "error":error
-            })
+        console.log(error)
+        res.send(error)
+        res.status(500).err(error)
+        res.json({message: "error al crear data"})
     }
 }
 
-exports.createLaboratorio = (req,res,next) =>{
+exports.createLaboratorio = async(req,res,next) =>{
     const laboratorio = new Laboratorio(req.body)
     const{ nombre } = req.body
     try {
-        laboratorio.save()
+        await laboratorio.save()
         res.json({message:`Se creo el laboratorio: ${nombre}`})
         
     } catch (error) {
@@ -57,7 +54,7 @@ exports.editLaboratorio = async(req,res,next) =>{
                 id_laboratorio:id
             }
         })
-        res.json({message:`Se actulizo el laboratorio`})
+        res.json({message: "Se modifico correctamente"})
     } catch (error) {
         console.log(error)
         res.send(error)
@@ -75,7 +72,7 @@ exports.deleteLaboratorio = async(req,res,next) =>{
                 id_laboratorio:id
             }
         })
-        res.json({message:`Se actulizo el laboratorio`})
+        res.json({message: "Se elimino correctamente"})
     } catch (error) {
         console.log(error)
         res.send(error)
